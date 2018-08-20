@@ -526,6 +526,7 @@ namespace MDORM.DapperExt.Utility
         {
             using (var DbCon = SqlConnectionFactory.CreateSqlCon())
             {
+                DBHelper.TryOpen(DbCon);
                 var trans = DbCon.BeginTransaction();
                 try
                 {
