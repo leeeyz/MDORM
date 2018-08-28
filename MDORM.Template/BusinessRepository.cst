@@ -86,6 +86,16 @@ namespace <%= BusinessRepositoryNamespace %>
             }
             return base.GetPage(pageIndex, pageSize, out allRowsCount, predicate, sort);
         }
+
+		/// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="primaryId">主键</param>
+        /// <returns></returns>
+        public bool DeleteById(object primaryId)
+        {
+            return base.Delete(Predicates.Field<<%=GetEntityeName()%>>(p => p.ID, Operator.Eq, primaryId));
+        }
         #endregion
         
         #region 扩展的方法
